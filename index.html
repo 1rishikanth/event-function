@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        .error {
+            color: red;
+        }
+        *{
+            text-align: center;
+        }
+        h2{
+            margin-top: 100px;
+        }
+        #myForm{
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Form Validation</h2>
+
+    <form id="myForm" onsubmit="return validateForm()">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span id="emailError" class="error"></span>
+
+        <br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <span id="passwordError" class="error"></span>
+
+        <br><br>
+        <div class="Date">
+            <label for="DOB">Date Of Birth:</label><br></br>
+            <form action="/action_page.php">
+                <label for = "Birthday:"></label>
+                <input type="date" id="birthday " name="birthday" required>
+                </form><br><br>
+            </div>
+            <div class="age">
+            <label for="Age">Age:</label>
+            <input type="text" maxlength="3" size="4"><br><br>
+            <label for="Gender">Gender:</label>
+            <input type="radio"  name="request_type" value="male" required> male
+            <input type="radio"  name="request_type" value="female" required> female
+            <br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+    <script>
+        function validateForm() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            
+            // Reset error messages
+            document.getElementById("emailError").innerHTML = "";
+            document.getElementById("passwordError").innerHTML = "";
+
+            // Email validation
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById("emailError").innerHTML = "Invalid email address";
+                return false;
+            }
+
+            // Password validation (at least 6 characters)
+            if (password.length < 6) {
+                document.getElementById("passwordError").innerHTML = "Password must be at least 6 characters";
+                return false;
+            }
+
+            // Form is valid
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+
+</body>
+</html>

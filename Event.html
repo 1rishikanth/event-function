@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling</title>
+</head>
+<body onload="handle5()">
+    <h2>Event Handling Example</h2>
+    <button id="myButton" onclick="handle()">Click me!</button>
+    <button id="btn" ondblclick="handle2()">Double click</button>
+    <br><br>
+    <label for="Event">Do you know event Handling:</label>
+    <div class="btn1">
+    <input type="radio"name="event" value="Yes" id="btn1" onchange="handle3()" required>Yes
+    <input type="radio" name="event"value
+    ="no" id="btn2" required onchange="handle4()">No
+    </div>
+    <p id="output">.....</p>
+    <p id="key" onmousedown="handle6()">click this text</p>
+
+    <script>
+       
+        var myButton = document.getElementById("myButton");        
+        myButton.addEventListener("click",function handle() {
+            var outputElement = document.getElementById("output");
+            outputElement.innerHTML = "Button clicked!";
+        });
+        btn.addEventListener("click",function handle2() {
+            var outputElement = document.getElementById("output");
+            outputElement.innerHTML = "Button clicked Twice!";
+        });
+        btn1.addEventListener("click",function handle3() {
+            document.getElementById("output").innerHTML="That's Good ";
+        });
+        btn2.addEventListener("click",function handle4() {
+            document.getElementById("output").innerHTML="It's okay you can learn it from here!!";
+        });
+        function handle5(){
+            alert("page loaded !!");
+        }
+        document.addEventListener('keypress',function(event)
+        {
+            var element=event.key;
+            alert("The key pressed is " +element);
+        });
+        function handle6(){
+            document.getElementById("key").innerHTML="mouse moved down";
+        };
+        let addfunction=(a,b)=>a*b;
+        document.getElementById("key").innerHTML=addfunction(4,5);
+    </script>
+</body>
+</html>
